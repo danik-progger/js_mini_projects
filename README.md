@@ -1,48 +1,57 @@
-# vanilla-js-mimi-projects
+# Small projects made with JS
 
-### This repo contains little projects made with javascript for education and entertaiment
+This repo contains little projects made with javascript for education and entertainment
 
-### Now it includes:
-1. 3D carousel
+## Projects
 
-<img src="./Readme_images/carousel.png" alt="" style="margin-bottom: 40px; height: 300px;"/>
+    1. 3D carousel
 
-2. NextJS anime finder with SSR and Infinite Scroll
+![3D Carousel](./Readme_images/carousel.png)
 
-<img src="./Readme_images/anime.png" alt="" style="margin-bottom: 40px; height: 300px;"/>
+    2. NextJS anime finder with SSR and Infinite Scroll
 
-3. Simple Trello clone with drag and drop realisation
+![Anime Finder](./Readme_images/anime.png)
 
-<img src="./Readme_images/trello.png" alt="" style="margin-bottom: 40px; height: 200px;"/>
+    3. Simple Trello clone with drag and drop realisation
 
-4. Glowing blob following mouse
+![Trello Clone](./Readme_images/trello.png)
 
-<img src="./Readme_images/glow.png" alt="" style="margin-bottom: 40px; margin-top: 10px; height: 300px;"/>
+    4. Glowing blob following mouse
 
-5. Creative multicard hover effect
+![Glowing Blob](./Readme_images/glow.png)
 
-<img src="./Readme_images/hover.png" alt="" style="margin-bottom: 40px; margin-top: 10px; height: 300px;"/>
+    5. Creative multicard hover effect
 
-6. Simple pacman game
+![Hover Effect](./Readme_images/hover.png)
 
-<img src="./Readme_images/pacman.png" alt="" style="margin-bottom: 40px; margin-top: 10px; height: 300px;"/>
+    6. Simple pacman game
 
-7. Parallax effect
+![Pacman Game](./Readme_images/pacman.png)
 
-<img src="./Readme_images/paralax.png" alt="" style="margin-bottom: 40px; height: 300px;"/>
+    7. Parallax effect
 
-8. Animation with planet simulation (zero js)
+![Parallax Effect](./Readme_images/paralax.png)
 
-<img src="./Readme_images/planets.png" alt="" style="margin-bottom: 40px; height: 300px;"/>
+    8. Animation with planet simulation (zero js)
 
-9. Theme toggler
+![Planet Simulation](./Readme_images/planets.png)
 
-<img src="./Readme_images/theme_toggler.png" alt="" style="margin-bottom: 40px; height: 300px;"/>
+    9. Theme toggler
 
-10. Tic-Tac-Toe
+![Theme Toggler](./Readme_images/theme_toggler.png)
 
-<img src="./Readme_images/tic-tac-toe.png" alt="" style="margin-bottom: 40px; height: 300px;"/>
+    10. Tic-Tac-Toe
 
-11. Analog clock dial
+![Tic-Tac-Toe](./Readme_images/tic-tac-toe.png)
 
-<img src="./Readme_images/clock.png" alt="" style="margin-bottom: 40px; height: 300px;"/>
+    11. Analog clock dial
+
+![Analog Clock](./Readme_images/clock.png)
+
+    12. Todo list with MobX
+
+    13. Obsidian plugin
+
+    14. Chat dApp
+
+    15. Simple app testing with playwright 

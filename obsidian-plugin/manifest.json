@@ -1,0 +1,11 @@
+{
+    "id": "test-habr-plugin",
+    "name": "Test Habr Plugin",
+    "version": "1.0.1",
+    "minAppVersion": "1.0.0",
+    "description": "Habr stronk",
+    "author": "askepit",
+    "authorUrl": "",
+    "helpUrl": "",
+    "isDesktopOnly": false
+}
