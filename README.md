@@ -57,3 +57,5 @@ This repo contains little projects made with javascript for education and entert
     15. Simple app testing with playwright 
 
     16. Own mobx in under 30 lines
+
+    17. Basic Three.js scene
