@@ -59,3 +59,5 @@ This repo contains little projects made with javascript for education and entert
     16. Own mobx in under 30 lines
 
     17. Basic Three.js scene
+    
+    18, Supabase auth
