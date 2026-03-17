@@ -13,43 +13,84 @@ export default function Home() {
     const l = lightness() / 100;
     const c = chroma() / 100;
     const h = hue();
-    
+
     const baseColor = `oklch(${l} ${c} ${h})`;
     document.documentElement.style.setProperty("--base-color", baseColor);
-    
+
     // Set background colors (with color)
-    document.documentElement.style.setProperty("--bg-dark", `oklch(${Math.max(0, l - 0.05)} ${c} ${h})`);
+    document.documentElement.style.setProperty(
+      "--bg-dark",
+      `oklch(${Math.max(0, l - 0.05)} ${c} ${h})`,
+    );
     document.documentElement.style.setProperty("--bg", `oklch(${l} ${c} ${h})`);
-    document.documentElement.style.setProperty("--bg-light", `oklch(${Math.min(1, l + 0.05)} ${c} ${h})`);
-    
+    document.documentElement.style.setProperty(
+      "--bg-light",
+      `oklch(${Math.min(1, l + 0.05)} ${c} ${h})`,
+    );
+
     // Set text colors (grayscale, inverted for contrast)
     // When lightness > 0.6, text should be darker than text-muted
-    const textLightness = l > 0.55
-      ? Math.max(0, 1 - l - 0.3)  // Darker for light backgrounds
-      : Math.min(1, 1 - l + 0.3);  // Lighter for dark backgrounds
-    const textMutedLightness = l > 0.55
-      ? Math.max(0, 1 - l - 0.05)   // Lighter (closer to bg) for light backgrounds
-      : Math.min(1, 1 - l + 0.05);   // Darker (closer to bg) for dark backgrounds
-    
-    document.documentElement.style.setProperty("--text", `oklch(${textLightness} 0 ${h})`);
-    document.documentElement.style.setProperty("--text-muted", `oklch(${textMutedLightness} 0 ${h})`);
-    
+    const textLightness =
+      l > 0.55
+        ? Math.max(0, 1 - l - 0.3) // Darker for light backgrounds
+        : Math.min(1, 1 - l + 0.3); // Lighter for dark backgrounds
+    const textMutedLightness =
+      l > 0.55
+        ? Math.max(0, 1 - l - 0.05) // Lighter (closer to bg) for light backgrounds
+        : Math.min(1, 1 - l + 0.05); // Darker (closer to bg) for dark backgrounds
+
+    document.documentElement.style.setProperty(
+      "--text",
+      `oklch(${textLightness} 0 ${h})`,
+    );
+    document.documentElement.style.setProperty(
+      "--text-muted",
+      `oklch(${textMutedLightness} 0 ${h})`,
+    );
+
     // Set border colors
     const borderChroma = Math.max(0.12, c);
-    document.documentElement.style.setProperty("--highlight", `oklch(${Math.min(1, l + 0.1)} ${borderChroma} ${h})`);
-    document.documentElement.style.setProperty("--border", `oklch(${Math.max(0, l - 0.1)} ${borderChroma} ${h})`);
-    document.documentElement.style.setProperty("--border-muted", `oklch(${Math.max(0, l - 0.2)} ${borderChroma} ${h})`);
-    
+    document.documentElement.style.setProperty(
+      "--highlight",
+      `oklch(${Math.min(1, l + 0.1)} ${borderChroma} ${h})`,
+    );
+    document.documentElement.style.setProperty(
+      "--border",
+      `oklch(${Math.max(0, l - 0.1)} ${borderChroma} ${h})`,
+    );
+    document.documentElement.style.setProperty(
+      "--border-muted",
+      `oklch(${Math.max(0, l - 0.2)} ${borderChroma} ${h})`,
+    );
+
     // Set action colors
-    document.documentElement.style.setProperty("--primary", `oklch(0.7 ${Math.max(0.12, c)} ${h})`);
-    document.documentElement.style.setProperty("--secondary", `oklch(0.7 ${Math.max(0.12, c)} ${(h + 180) % 360})`);
-    
+    document.documentElement.style.setProperty(
+      "--primary",
+      `oklch(0.7 ${Math.max(0.12, c)} ${h})`,
+    );
+    document.documentElement.style.setProperty(
+      "--secondary",
+      `oklch(0.7 ${Math.max(0.12, c)} ${(h + 180) % 360})`,
+    );
+
     // Set alert colors (fixed hues but more vivid than other colors)
     const alertChroma = Math.max(0.18, c * 1.1);
-    document.documentElement.style.setProperty("--danger", `oklch(0.65 ${alertChroma} 30)`);
-    document.documentElement.style.setProperty("--warning", `oklch(0.75 ${alertChroma} 90)`);
-    document.documentElement.style.setProperty("--success", `oklch(0.7 ${alertChroma} 160)`);
-    document.documentElement.style.setProperty("--info", `oklch(0.7 ${alertChroma} 250)`);
+    document.documentElement.style.setProperty(
+      "--danger",
+      `oklch(0.65 ${alertChroma} 30)`,
+    );
+    document.documentElement.style.setProperty(
+      "--warning",
+      `oklch(0.75 ${alertChroma} 90)`,
+    );
+    document.documentElement.style.setProperty(
+      "--success",
+      `oklch(0.7 ${alertChroma} 160)`,
+    );
+    document.documentElement.style.setProperty(
+      "--info",
+      `oklch(0.7 ${alertChroma} 250)`,
+    );
   });
 
   const generateColorCode = () => {
@@ -112,16 +153,34 @@ export default function Home() {
         </div>
 
         <div class="feature-cards">
-          <Card title="Contrast" content="Mix sharper headings with muted text" borderColor="var(--highlight)" />
-          <Card title="Gradients" content="Play with gradient background" borderColor="var(--border)" />
-          <Card title="Highlight" content="Use a lighter border to simulate light" borderColor="var(--border-muted)" />
+          <Card
+            title="Contrast"
+            content="Mix sharper headings with muted text"
+            borderColor="var(--highlight)"
+          />
+          <Card
+            title="Gradients"
+            content="Play with gradient background"
+            borderColor="var(--border)"
+          />
+          <Card
+            title="Highlight"
+            content="Use a lighter border to simulate light"
+            borderColor="var(--border-muted)"
+          />
         </div>
 
         <div class="action-buttons">
-          <button class="btn btn-primary" onClick={() => setShowCodeModal(true)}>
+          <button
+            class="btn btn-primary"
+            onClick={() => setShowCodeModal(true)}
+          >
             Show Code
           </button>
-          <button class="btn btn-secondary" onClick={() => setShowAlertsModal(true)}>
+          <button
+            class="btn btn-secondary"
+            onClick={() => setShowAlertsModal(true)}
+          >
             Show Alerts
           </button>
         </div>
@@ -132,7 +191,10 @@ export default function Home() {
           <h4 class="section-title">Background</h4>
           <div class="color-grid">
             <div class="color-swatch">
-              <div class="swatch" style={{ "background-color": "var(--bg-dark)" }} />
+              <div
+                class="swatch"
+                style={{ "background-color": "var(--bg-dark)" }}
+              />
               <span class="swatch-label">bg-dark</span>
             </div>
             <div class="color-swatch">
@@ -140,7 +202,10 @@ export default function Home() {
               <span class="swatch-label">bg</span>
             </div>
             <div class="color-swatch">
-              <div class="swatch" style={{ "background-color": "var(--bg-light)" }} />
+              <div
+                class="swatch"
+                style={{ "background-color": "var(--bg-light)" }}
+              />
               <span class="swatch-label">bg-light</span>
             </div>
           </div>
@@ -150,11 +215,17 @@ export default function Home() {
           <h3 class="section-title">Text</h3>
           <div class="color-grid">
             <div class="color-swatch">
-              <div class="swatch" style={{ "background-color": "var(--text)" }} />
+              <div
+                class="swatch"
+                style={{ "background-color": "var(--text)" }}
+              />
               <span class="swatch-label">text</span>
             </div>
             <div class="color-swatch">
-              <div class="swatch" style={{ "background-color": "var(--text-muted)" }} />
+              <div
+                class="swatch"
+                style={{ "background-color": "var(--text-muted)" }}
+              />
               <span class="swatch-label">text-muted</span>
             </div>
           </div>
@@ -164,15 +235,24 @@ export default function Home() {
           <h3 class="section-title">Border</h3>
           <div class="color-grid">
             <div class="color-swatch">
-              <div class="swatch" style={{ "background-color": "var(--highlight)" }} />
+              <div
+                class="swatch"
+                style={{ "background-color": "var(--highlight)" }}
+              />
               <span class="swatch-label">highlight</span>
             </div>
             <div class="color-swatch">
-              <div class="swatch" style={{ "background-color": "var(--border)" }} />
+              <div
+                class="swatch"
+                style={{ "background-color": "var(--border)" }}
+              />
               <span class="swatch-label">border</span>
             </div>
             <div class="color-swatch">
-              <div class="swatch" style={{ "background-color": "var(--border-muted)" }} />
+              <div
+                class="swatch"
+                style={{ "background-color": "var(--border-muted)" }}
+              />
               <span class="swatch-label">border-muted</span>
             </div>
           </div>
@@ -182,11 +262,17 @@ export default function Home() {
           <h3 class="section-title">Action</h3>
           <div class="color-grid">
             <div class="color-swatch">
-              <div class="swatch" style={{ "background-color": "var(--primary)" }} />
+              <div
+                class="swatch"
+                style={{ "background-color": "var(--primary)" }}
+              />
               <span class="swatch-label">primary</span>
             </div>
             <div class="color-swatch">
-              <div class="swatch" style={{ "background-color": "var(--secondary)" }} />
+              <div
+                class="swatch"
+                style={{ "background-color": "var(--secondary)" }}
+              />
               <span class="swatch-label">secondary</span>
             </div>
           </div>
@@ -196,19 +282,31 @@ export default function Home() {
           <h3 class="section-title">Alert</h3>
           <div class="color-grid">
             <div class="color-swatch">
-              <div class="swatch" style={{ "background-color": "var(--danger)" }} />
+              <div
+                class="swatch"
+                style={{ "background-color": "var(--danger)" }}
+              />
               <span class="swatch-label">danger</span>
             </div>
             <div class="color-swatch">
-              <div class="swatch" style={{ "background-color": "var(--warning)" }} />
+              <div
+                class="swatch"
+                style={{ "background-color": "var(--warning)" }}
+              />
               <span class="swatch-label">warning</span>
             </div>
             <div class="color-swatch">
-              <div class="swatch" style={{ "background-color": "var(--success)" }} />
+              <div
+                class="swatch"
+                style={{ "background-color": "var(--success)" }}
+              />
               <span class="swatch-label">success</span>
             </div>
             <div class="color-swatch">
-              <div class="swatch" style={{ "background-color": "var(--info)" }} />
+              <div
+                class="swatch"
+                style={{ "background-color": "var(--info)" }}
+              />
               <span class="swatch-label">info</span>
             </div>
           </div>
@@ -233,8 +331,14 @@ export default function Home() {
 
       <Show when={showAlertsModal()}>
         <div class="modal-overlay" onClick={() => setShowAlertsModal(false)}>
-          <div class="alerts-modal-content" onClick={(e) => e.stopPropagation()}>
-            <button class="close-btn-alerts" onClick={() => setShowAlertsModal(false)}>
+          <div
+            class="alerts-modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              class="close-btn-alerts"
+              onClick={() => setShowAlertsModal(false)}
+            >
               ✕
             </button>
             <div class="alert-stack">
@@ -242,7 +346,9 @@ export default function Home() {
                 <span class="alert-icon">⚠</span>
                 <div class="alert-content">
                   <h4 class="alert-title">Payment failed</h4>
-                  <p class="alert-message">Your account will be terminated within 48 hours.</p>
+                  <p class="alert-message">
+                    Your account will be terminated within 48 hours.
+                  </p>
                 </div>
               </div>
               <div class="alert alert-warning">
@@ -256,14 +362,18 @@ export default function Home() {
                 <span class="alert-icon">✓</span>
                 <div class="alert-content">
                   <h4 class="alert-title">Backup complete</h4>
-                  <p class="alert-message">Your photos were saved successfully!</p>
+                  <p class="alert-message">
+                    Your photos were saved successfully!
+                  </p>
                 </div>
               </div>
               <div class="alert alert-info">
                 <span class="alert-icon">💎</span>
                 <div class="alert-content">
                   <h4 class="alert-title">Upgrade to Pro</h4>
-                  <p class="alert-message">Hey Sajid, upgrade now and get 20% off.</p>
+                  <p class="alert-message">
+                    Hey Sajid, upgrade now and get 20% off.
+                  </p>
                 </div>
               </div>
             </div>
